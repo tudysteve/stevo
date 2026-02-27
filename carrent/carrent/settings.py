@@ -156,4 +156,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mwangistephenwanyoike17@gmail.com'         # <-- your Gmail address
 EMAIL_HOST_PASSWORD = 'yo'   # <-- 16-character App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
- STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
