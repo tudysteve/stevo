@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Car | CarRent</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Rent This Car</h1>
+</header>
+
+<div class="container">
+
+    <!-- Car Details -->
+    <div class="car-details">
+        <h2>{{ car.name }}</h2>
+
+        {% if car.image %}
+            <img src="{{ car.image.url }}" width="300">
+        {% endif %}
+
+        <p><strong>Price per day:</strong> KSh {{ car.price_per_day }}</p>
+        <p><strong>Description:</strong> {{ car.description }}</p>
+    </div>
+
+    <hr>
+
+    <!-- Rental Form -->
+    <h2>Rental Details</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Pickup Date:</label>
+        <input type="date" name="pickup_date" required>
+        <br><br>
+
+        <label>Return Date:</label>
+        <input type="date" name="return_date" required>
+        <br><br>
+
+        <label>Pickup Location:</label>
+        <input type="text" name="pickup_location" placeholder="Enter location" required>
+        <br><br>
+
+        <label>Phone Number:</label>
+        <input type="text" name="phone" placeholder="Enter phone number" required>
+        <br><br>
+
+        <button type="submit">Confirm Rental</ee>
+        
+    </form>
+
+</div>
+
+</body>
+</html>
