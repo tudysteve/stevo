@@ -15,7 +15,8 @@ urlpatterns = [
 
     # Car renting
     path('rent/<int:car_id>/', views.rent_car, name='rent_car'),
-    
+    path('payment/', views.payment, name='payment'),
+  
 
     # Authentication
     path('login/', views.login_user, name='login'),

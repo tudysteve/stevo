@@ -36,10 +36,11 @@
                 
                 {% if user.is_authenticated %}
                 <!-- Logged in: go to renting page -->
-                <a href="{% url 'rent_car' car.id %}"><button>Rent Now</button></a>
+                <a href="{% url 'book_car' car.id %}">
+                    <button>Rent Now</button></a>
                 {% else %}
                 <!-- Not logged in: go to login/signup page -->
-                <a href="{% url 'login' %}?next={% url 'rent_car' car.id %}"><button>Rent Now</button></a>
+                <a href="{% url 'login' %}?next={% url 'book_car' car.id %}"><button>Rent Now</button></a>
                 {% endif %}
                 
                 

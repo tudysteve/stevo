@@ -140,3 +140,10 @@ def book_car(request, car_id):
 def booking_success(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     return render(request, 'booking_success.html', {'booking': booking})
+
+# ========================
+# Payment
+# ========================
+def payment(request):
+    """Handle payment processing"""
+    return render(request, 'payment.html')

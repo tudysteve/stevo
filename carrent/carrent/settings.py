@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mpesa_api',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MPESA_CONFIG = {
+    'CONSUMER_KEY': 'AUfqJWrHpavFgKPBd15Zbd0DPt0ANUF6',
+    'CONSUMER_SECRET': '5pqIjQKDEG6X5jYD',
+    'CERTIFICATE_FILE': None,
+    'HOST_NAME': "https://sandbox.safaricom.co.ke",
+    'PASS_KEY': 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
+    'SAFARICOM_API': 'https://sandbox.safaricom.co.ke',
+    'SHORT_CODE': '174379',
+    'TRANSACTION_TYPE': 'CustomerBuyGoodsOnline',
+    # 'Access Token': getAccessToken(request=request),
+}
 
 ROOT_URLCONF = 'carrent.urls'
 
@@ -152,8 +165,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 EMAIL_HOST_USER = 'mwangistephenwanyoike17@gmail.com'         # <-- your Gmail address
 EMAIL_HOST_PASSWORD = 'yo'   # <-- 16-character App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
