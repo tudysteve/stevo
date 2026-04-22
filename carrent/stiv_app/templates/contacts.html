@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts | CarRent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+</head>
+
+<body>
+{% include 'header.html' %}
+<!-- ===== CONTACTS SECTION ===== -->
+<section id="contacts" class="section contacts-section">
+
+    <div class="contacts-container">
+
+        <h1>Contact Us</h1>
+        <p class="contacts-intro">
+            Have questions? Reach out to us anytime.
+        </p>
+
+        <div class="contacts-content">
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Our Information</h2>
+                <p><strong>Phone:</strong> +254 700 000 000</p>
+                <p><strong>Email:</strong> info@carrental.com</p>
+                <p><strong>Location:</strong> Nairobi, Kenya</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Send Message</h2>
+
+                
+    <form method="POST">
+    {% csrf_token %}
+    
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- Success/Error messages -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+            </div>
+
+        </div>
+
+        <!-- Back Home Button -->
+        <button onclick="location.href='/'">Back Home</button>
+
+    </div>
+
+</section>
+
+</body>
+</html>

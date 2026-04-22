@@ -1,0 +1,167 @@
+/* ===== GENERAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #111;
+    color: white;
+    position: sticky;   /* <-- sticky header */
+    top: 0;             /* stick to top */
+    z-index: 10000;     /* above everything else */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ===== DROPDOWN MENU ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background: #eee;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+body {
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    padding: 80px 20px;
+}
+
+/* ===== CONTAINER ===== */
+.about-container {
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+/* ===== HEADINGS ===== */
+.about-container h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about-intro {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* ===== CONTENT LAYOUT ===== */
+.about-content {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== ABOUT BOXES ===== */
+.about-box {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.about-box:hover {
+    transform: translateY(-8px);
+}
+
+.about-box h2 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.about-box p {
+    color: #555;
+}
+
+/* ===== LIST STYLE ===== */
+.about-box ul {
+    list-style: none;
+}
+
+.about-box li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ===== BUTTON STYLE ===== */
+button {
+    margin-top: 40px;
+    padding: 12px 25px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .about-container h1 {
+        font-size: 28px;
+    }
+
+    .about-intro {
+        font-size: 16px;
+    }
+
+    .about-box {
+        width: 100%;
+    }
+}
