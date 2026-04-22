@@ -1,0 +1,18 @@
+# virtual environment
+stev/
+venv/
+env/
+
+# vscode
+.vscode/
+
+# python
+__pycache__/
+*.pyc
+
+# database
+db.sqlite3
+
+# other projects
+student_hub/
+c_projects/

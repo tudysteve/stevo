@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Car | CarRent</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+<header>
+    <h1>Book This Car</h1>
+</header>
+
+<div class="container">
+
+    <!-- Car Details Section -->
+    <div class="car-details">
+        <h2>{{ car.name }}</h2>
+
+        {% if car.image %}
+            <img src="{{ car.image.url }}" width="300">
+        {% endif %}
+
+        <p><strong>Price per day:</strong> KSh {{ car.price_per_day }}</p>
+        <p>{{ car.description }}</p>
+    </div>
+
+    <hr>
+
+    <!-- Booking Form -->
+    <h2>Quick Reservation</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Pickup Date:</label><br>
+        <input type="date" name="pickup_date" required>
+        <br><br>
+
+        <label>Return Date:</label><br>
+        <input type="date" name="return_date" required>
+        <br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="text" name="phone" placeholder="Enter your phone number" required>
+        <br><br>
+
+        <label>Additional Message (Optional):</label><br>
+        <textarea name="message" rows="4" placeholder="Any special request?"></textarea>
+        <br><br>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+</div>
+
+</body>
+</html>

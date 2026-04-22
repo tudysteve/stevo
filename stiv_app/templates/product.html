@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products | CarRent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+
+<body>
+    {% include 'header.html' %}
+
+<section class="products-section">
+
+    <div class="products-container">
+
+        <h1>Our Available Cars</h1>
+
+        <p class="products-intro">
+            Choose from our wide range of vehicles including economy, SUVs, and luxury cars.
+            We provide reliable, comfortable, and affordable vehicles for every journey.
+        </p>
+
+        <div class="products-grid">
+            {% for car in cars %}
+            <div class="product-card">
+                <img src="{{ car.image.url }}" alt="{{ car.name }}">
+                <h3>{{ car.name }}</h3>
+                <p>{{ car.description }}</p>
+                <p><strong>Category:</strong> {{ car.category }}</p>
+                <p><strong>Price/Day:</strong> Kes{{ car.price_per_day }}</p>
+                
+                {% if user.is_authenticated %}
+                <!-- Logged in: go to renting page -->
+                <a href="{% url 'book_car' car.id %}">
+                    <button>Rent Now</button></a>
+                {% else %}
+                <!-- Not logged in: go to login/signup page -->
+                <a href="{% url 'login' %}?next={% url 'book_car' car.id %}"><button>Rent Now</button></a>
+                {% endif %}
+                
+                
+            </div>
+            {% empty %}
+            <p>No cars available at the moment. Please check back later.</p>
+            {% endfor %}
+        </div>
+
+        <button class="home-btn" onclick="location.href='/'">Back Home</button>
+
+    </div>
+
+</section>
+
+</body>
+</html>

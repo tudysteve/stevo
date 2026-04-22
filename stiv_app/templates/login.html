@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | CarRent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<div id="login" class="section login-section">
+
+    <div class="login-container">
+
+        <h1>Login</h1>
+        <p class="login-intro">Access your account to manage bookings.</p>
+
+        <!-- 🔥 Django Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: #ffdddd; background: rgba(255,0,0,0.2); padding:10px; border-radius:8px; margin-bottom:10px;">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <!-- LOGIN FORM -->
+        <form class="login-form" method="POST" action="{% url 'login' %}" autocomplete="off">
+
+            {% csrf_token %}
+
+            <!-- 🔥 Autofill trap (helps reduce browser autofill) -->
+            <input type="text" name="fakeuser" style="display:none">
+            <input type="password" name="fakepass" style="display:none">
+
+            <!-- REAL INPUTS -->
+            <input type="text" name="username" placeholder="Username" required autocomplete="off">
+
+            <input type="password" name="password" placeholder="Password" required autocomplete="new-password">
+
+            <button type="submit">Login</button>
+
+            <p class="register-link">
+                Don't have an account?
+                <a href="{% url 'register' %}">Register</a>
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
