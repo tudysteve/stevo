@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'carrent.wsgi.application'
 
 # DATABASE (PostgreSQL via Render)
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+    'default': dj_database_url.parse(
+        os.environ["DATABASE_URL"],
         conn_max_age=600,
         ssl_require=True
     )
